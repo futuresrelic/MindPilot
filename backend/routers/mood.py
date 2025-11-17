@@ -10,7 +10,8 @@ from typing import Optional, List
 from database import get_db
 from models import User, MoodLog
 from auth import get_current_user
-from ai.mood_engine import generate_mood_reflection, analyze_mood_patterns
+# Using OpenAI version - change to ai.mood_engine for Anthropic Claude
+from ai.mood_engine_openai import generate_mood_reflection, analyze_mood_patterns
 
 router = APIRouter(prefix="/mood", tags=["mood"])
 

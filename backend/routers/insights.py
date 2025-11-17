@@ -8,7 +8,8 @@ from datetime import datetime, timedelta
 from database import get_db
 from models import User, Insight
 from auth import get_current_user, check_premium
-from ai.weekly_insights import generate_weekly_insight, generate_habit_suggestion
+# Using OpenAI version - change to ai.weekly_insights for Anthropic Claude
+from ai.weekly_insights_openai import generate_weekly_insight, generate_habit_suggestion
 
 router = APIRouter(prefix="/insights", tags=["insights"])
 

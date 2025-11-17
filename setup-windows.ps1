@@ -23,8 +23,9 @@ Write-Host "========================================" -ForegroundColor Cyan
 Write-Host "  Step 1: API Keys Setup" -ForegroundColor Cyan
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host ""
-Write-Host "You need an Anthropic API key to use the AI features." -ForegroundColor Yellow
-Write-Host "Get one free at: https://console.anthropic.com" -ForegroundColor Yellow
+Write-Host "You need an OpenAI API key to use the AI features." -ForegroundColor Yellow
+Write-Host "Already have ChatGPT? Use that same API key!" -ForegroundColor Green
+Write-Host "Get your key at: https://platform.openai.com/api-keys" -ForegroundColor Yellow
 Write-Host ""
 
 $envFile = ".env"
@@ -32,9 +33,9 @@ if (Test-Path $envFile) {
     Write-Host "Found existing .env file" -ForegroundColor Green
     $updateEnv = Read-Host "Do you want to update your API keys? (y/n)"
     if ($updateEnv -eq "y") {
-        $apiKey = Read-Host "Enter your Anthropic API key"
+        $apiKey = Read-Host "Enter your OpenAI API key"
         if ($apiKey) {
-            (Get-Content $envFile) -replace 'ANTHROPIC_API_KEY=.*', "ANTHROPIC_API_KEY=$apiKey" | Set-Content $envFile
+            (Get-Content $envFile) -replace 'OPENAI_API_KEY=.*', "OPENAI_API_KEY=$apiKey" | Set-Content $envFile
             Write-Host "✓ API key updated" -ForegroundColor Green
         }
     }
@@ -43,7 +44,7 @@ if (Test-Path $envFile) {
     Copy-Item ".env.example" $envFile -ErrorAction SilentlyContinue
     Write-Host "✓ Created .env file" -ForegroundColor Green
     Write-Host ""
-    Write-Host "IMPORTANT: Edit the .env file and add your Anthropic API key!" -ForegroundColor Red
+    Write-Host "IMPORTANT: Edit the .env file and add your OpenAI API key!" -ForegroundColor Red
     Write-Host "Press any key to open .env file in Notepad..."
     pause
     notepad $envFile

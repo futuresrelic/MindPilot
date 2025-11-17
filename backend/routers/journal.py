@@ -10,8 +10,9 @@ from typing import Optional
 from database import get_db
 from models import User, Journal
 from auth import get_current_user, check_premium
-from ai.journal_engine import analyze_journal_entry, generate_weekly_journal_summary, extract_journal_insights
-from ai.cbt_engine import generate_cbt_suggestion
+# Using OpenAI versions - change to ai.journal_engine and ai.cbt_engine for Anthropic Claude
+from ai.journal_engine_openai import analyze_journal_entry, generate_weekly_journal_summary, extract_journal_insights
+from ai.cbt_engine_openai import generate_cbt_suggestion
 
 router = APIRouter(prefix="/journal", tags=["journal"])
 

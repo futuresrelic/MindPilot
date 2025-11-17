@@ -30,7 +30,8 @@ services:
     environment:
       DATABASE_URL: postgresql://postgres:postgres123@db:5432/mindpilot
       JWT_SECRET_KEY: your-super-secret-jwt-key-change-this-in-production-min-32-chars
-      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
       STRIPE_SECRET_KEY: ${STRIPE_SECRET_KEY:-sk_test_dummy}
       STRIPE_WEBHOOK_SECRET: ${STRIPE_WEBHOOK_SECRET:-whsec_dummy}
       STRIPE_MONTHLY_PRICE_ID: ${STRIPE_MONTHLY_PRICE_ID:-price_dummy}
